@@ -1,5 +1,6 @@
 package com.macro.cloud.service;
 
+import com.macro.cloud.domain.Actor;
 import com.macro.cloud.domain.User;
 
 import java.util.List;
@@ -9,6 +10,8 @@ import java.util.List;
  */
 public interface UserService {
     void create(User user);
+
+    void createActor(Actor user);
 
     User getUser(Long id);
 

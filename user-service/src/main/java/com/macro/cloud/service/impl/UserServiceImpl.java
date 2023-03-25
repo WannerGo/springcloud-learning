@@ -1,12 +1,18 @@
 package com.macro.cloud.service.impl;
 
+import com.macro.cloud.domain.Actor;
 import com.macro.cloud.domain.User;
+import com.macro.cloud.mapper.ActorMapper;
 import com.macro.cloud.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,9 +23,17 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
     private List<User> userList;
 
+    @Autowired
+    ActorMapper actorMapper;
+
     @Override
     public void create(User user) {
         userList.add(user);
+    }
+
+    @Override
+    public void createActor(Actor user) {
+        actorMapper.insert(user);
     }
 
     @Override

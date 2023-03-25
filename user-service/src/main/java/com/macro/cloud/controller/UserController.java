@@ -1,5 +1,6 @@
 package com.macro.cloud.controller;
 
+import com.macro.cloud.domain.Actor;
 import com.macro.cloud.domain.CommonResult;
 import com.macro.cloud.domain.User;
 import com.macro.cloud.service.UserService;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -25,6 +27,12 @@ public class UserController {
     @PostMapping("/create")
     public CommonResult create(@RequestBody User user) {
         userService.create(user);
+        return new CommonResult("操作成功", 200);
+    }
+
+    @PostMapping("/createActor")
+    public CommonResult createActor(@RequestBody Actor actor) {
+        userService.createActor(actor);
         return new CommonResult("操作成功", 200);
     }
 
