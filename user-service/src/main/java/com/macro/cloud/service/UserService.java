@@ -13,6 +13,8 @@ public interface UserService {
 
     void createActor(Actor user);
 
+    int batchCreateActor();
+
     User getUser(Long id);
 
     void update(User user);

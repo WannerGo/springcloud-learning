@@ -36,6 +36,12 @@ public class UserController {
         return new CommonResult("操作成功", 200);
     }
 
+    @PostMapping("/createActorBatch")
+    public CommonResult createActorBatch() {
+        userService.batchCreateActor();
+        return new CommonResult("操作成功", 200);
+    }
+
     @GetMapping("/{id}")
     public CommonResult<User> getUser(@PathVariable Long id) {
         User user = userService.getUser(id);
