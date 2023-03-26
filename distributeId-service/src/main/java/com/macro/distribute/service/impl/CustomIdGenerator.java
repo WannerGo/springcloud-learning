@@ -1,7 +1,8 @@
-package com.macro.cloud.service.impl;
+package com.macro.distribute.service.impl;
 
 
-import com.macro.cloud.service.DistributeIdService;
+import com.macro.distribute.service.inf.DistributeIdService;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -9,6 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
 //  分布式id  通过第三方id的服务 生成一个全局id 就可以利用java的特性来做
 //  内部维护一个map key为表名 value 为 id
 
+@Component
 public class CustomIdGenerator implements DistributeIdService {
 
     private static ConcurrentHashMap<String, AtomicLong> ID_MAP = new ConcurrentHashMap<>();

@@ -17,4 +17,12 @@ public class DistributeController {
         System.out.println(distributeIdService.generateDistributeId(tableName));
         return new CommonResult("操作成功", 200);
     }
+
+    @GetMapping("/times/{times}")
+    public CommonResult create(@PathVariable("times") Integer times) {
+        for (int i = 0; i <times ; i++) {
+            distributeIdService.generateDistributeId("test"+i);
+        }
+        return new CommonResult("操作成功", 200);
+    }
 }

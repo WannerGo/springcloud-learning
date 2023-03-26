@@ -1,4 +1,4 @@
-package com.macro.service.inf;
+package com.macro.distribute.service.inf;
 
 /**
  * 全局唯一 ：ID 的全局唯一性肯定是首先要满足的！

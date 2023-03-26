@@ -24,3 +24,14 @@ eureka:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 
+
+#  leaf.name=com.sankuai.leaf.opensource.test
+#  leaf.segment.enable=false
+#  #leaf.segment.url=
+#  #leaf.segment.username=
+#  #leaf.segment.password=
+#
+#  leaf.snowflake.enable=false
+##leaf.snowflake.address=
+##leaf.snowflake.port=
+
