@@ -3,7 +3,6 @@ package com.macro.cloud.service.impl;
 
 import com.macro.cloud.service.DistributeIdService;
 
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -12,8 +11,19 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class CustomIdGenerator implements DistributeIdService {
 
-    private static Map<String, AtomicLong> idMap = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<String, AtomicLong> idMap = new ConcurrentHashMap<>();
     private static final String lock = "lock";
+
+    public static ConcurrentHashMap<String, AtomicLong> getIdMap(){
+        return idMap;
+    }
+
+    static{
+        Thread thread=new Thread(new PersistenceStorageThread());
+        thread.setDaemon(true);
+        thread.start();
+    }
+
 
     // 该方法肯定是多线程调用
     @Override
